@@ -3,7 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2047
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monaco.Algorithms", "Monaco.Algorithms\Monaco.Algorithms.csproj", "{5EC6D83B-B940-4533-9DC7-84B2210A7F74}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monaco.Algorithms.IntegrationTests", "Monaco.Algorithms.IntegrationTests\Monaco.Algorithms.IntegrationTests.csproj", "{5D82B1CD-4E5E-4F68-A0F6-4CE5A49FFD5C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Monaco.Algorithms", "Monaco.Algorithms\Monaco.Algorithms.csproj", "{6ED097D0-46BD-4CA5-8A08-4BCBB81F08C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Monaco.Algorithms.UnitTests", "Monaco.Algorithms.UnitTests\Monaco.Algorithms.UnitTests.csproj", "{F488DE98-E344-4C5F-ACA3-708250D29158}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +15,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5EC6D83B-B940-4533-9DC7-84B2210A7F74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5EC6D83B-B940-4533-9DC7-84B2210A7F74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5EC6D83B-B940-4533-9DC7-84B2210A7F74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5EC6D83B-B940-4533-9DC7-84B2210A7F74}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D82B1CD-4E5E-4F68-A0F6-4CE5A49FFD5C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D82B1CD-4E5E-4F68-A0F6-4CE5A49FFD5C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D82B1CD-4E5E-4F68-A0F6-4CE5A49FFD5C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D82B1CD-4E5E-4F68-A0F6-4CE5A49FFD5C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6ED097D0-46BD-4CA5-8A08-4BCBB81F08C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6ED097D0-46BD-4CA5-8A08-4BCBB81F08C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6ED097D0-46BD-4CA5-8A08-4BCBB81F08C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6ED097D0-46BD-4CA5-8A08-4BCBB81F08C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F488DE98-E344-4C5F-ACA3-708250D29158}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F488DE98-E344-4C5F-ACA3-708250D29158}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F488DE98-E344-4C5F-ACA3-708250D29158}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F488DE98-E344-4C5F-ACA3-708250D29158}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

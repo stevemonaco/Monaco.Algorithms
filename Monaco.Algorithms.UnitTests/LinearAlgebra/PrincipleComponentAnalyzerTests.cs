@@ -32,6 +32,7 @@ namespace Monaco.Algorithms.UnitTests.LinearAlgebra
             pca = new PrincipalComponentAnalyzer(PrincipalComponentMethod.Covariance);
         }
 
+        // Disabled due to inconsistent ordering of eigenvalues
         /*[Test]
         public void ProjectMatrix_CalculatesCorrectly()
         {

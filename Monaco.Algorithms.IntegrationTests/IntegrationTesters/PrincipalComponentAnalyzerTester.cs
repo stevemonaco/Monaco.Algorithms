@@ -53,6 +53,7 @@ namespace AlgorithmIntegrationTests.IntegrationTesters
             Console.WriteLine(projectedMatrix.ToMatrixString());
         }
         
+        // Disabled due to inconsistent ordering of eigenvalues
         /*[Test]
         public void TestPCABySVD()
         {

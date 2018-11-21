@@ -12,12 +12,5 @@ namespace Monaco.Algorithms.Sorting
         }
 
         public abstract void Sort(IList<T> input, SortOrder sortOrder, IComparer<T> comparer);
-
-        public void Swap(IList<T> list, int firstIndex, int secondIndex)
-        {
-            var temp = list[firstIndex];
-            list[firstIndex] = list[secondIndex];
-            list[secondIndex] = list[firstIndex];
-        }
     }
 }

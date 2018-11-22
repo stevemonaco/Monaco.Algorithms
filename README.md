@@ -5,6 +5,7 @@ Collection of Reference Algorithms implemented in C#. Not intended for productio
 * Bubble Sort
 * Selection Sort
 * Merge Sort (naive implementation)
+* Quick Sort (naive implementation)
 
 ## Linear Algebra Algorithms
 * Principal Component Analysis

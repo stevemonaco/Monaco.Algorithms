@@ -7,7 +7,7 @@ using System.Text;
 namespace Monaco.Algorithms.Structures
 {
     /// <summary>
-    /// A doubly-linked list implementation
+    /// A generic doubly-linked list implementation
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public class DoublyLinkedList<T> : IEnumerable<T>, IEnumerable
@@ -53,8 +53,6 @@ namespace Monaco.Algorithms.Structures
         /// <summary>
         /// Inserts the specified value before the specified 0-based index of the list
         /// </summary>
-        /// <param name="value">The value.</param>
-        /// <param name="index">The index.</param>
         public void Insert(T value, int index)
         {
             if (index < Count && index != 0)
@@ -82,6 +80,10 @@ namespace Monaco.Algorithms.Structures
             Count++;
         }
 
+        /// <summary>
+        /// Removes a node from the list
+        /// </summary>
+        /// <param name="node"></param>
         public void Remove(DoublyLinkedNode<T> node)
         {
             if (node == null)

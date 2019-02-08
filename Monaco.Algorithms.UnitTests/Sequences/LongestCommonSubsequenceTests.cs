@@ -9,19 +9,6 @@ namespace Monaco.Algorithms.UnitTests.Sequences
     [TestFixture]
     class LongestCommonSubsequenceTests
     {
-        /*[TestCase("Philosopher", "Phil", "Phil")]
-        [TestCase("Philosopher", "sopher", "sopher")]
-        [TestCase("Philosopher", "qsophm", "soph")]
-        [TestCase("abi", "ABI", "")]
-        [TestCase("qeBEio", "qeBEio", "qeBEio")]
-        [TestCase("", "qeBEio", "")]
-        [TestCase("qeBEio", "", "")]
-        [TestCase("", "", "")]
-        public void LcsRecursive_ValidStrings_ReturnsExpected(string s1, string s2, string expected)
-        {
-
-        }*/
-
         [TestCaseSource(typeof(LongestCommonSubsequenceTestCases), "LcsLengthCases")]
         public void LcsLengthRecursive_ValidStrings_ReturnsExpected(string s1, string s2, int expected)
         {

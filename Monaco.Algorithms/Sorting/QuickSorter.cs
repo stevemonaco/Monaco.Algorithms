@@ -5,12 +5,12 @@ using Monaco.Algorithms.Extensions;
 namespace Monaco.Algorithms.Sorting
 {
     /// <summary>
-    /// Quick sorts a collection.
+    /// Quicksorts a collection.
     /// Implementation largely ported from Sedgewick https://algs4.cs.princeton.edu/23quicksort/Quick.java.html
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <seealso cref="Monaco.Algorithms.Sorting.SorterBase{T}" />
-    public class NaiveQuickSorter<T> : SorterBase<T> where T : IComparable<T>
+    public class QuickSorter<T> : SorterBase<T> where T : IComparable<T>
     {
         Func<T, T, bool> shouldSwap = null;
 

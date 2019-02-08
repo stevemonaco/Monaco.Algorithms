@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace Monaco.Algorithms.Sorting
 {
-    public class NaiveMergeSorter<T> : SorterBase<T> where T : IComparable<T>
+    public class MergeSorter<T> : SorterBase<T> where T : IComparable<T>
     {
         Func<T, T, bool> shouldSwap = null;
 

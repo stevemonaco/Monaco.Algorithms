@@ -128,16 +128,17 @@ namespace Monaco.Algorithms.Sequences
                 return "";
 
             var table = LcsDynamic(s1, s2);
-            var len = table[table.GetUpperBound(0), table.GetUpperBound(1)];
+
+            int i = table.GetUpperBound(0);
+            int j = table.GetUpperBound(1);
+
+            var len = table[i, j];
 
             if (len == 0)
                 return "";
 
             var result = new char[len];
             var resultIndex = len - 1;
-
-            int i = table.GetUpperBound(0);
-            int j = table.GetUpperBound(1);
 
             while(i > 0 && j > 0)
             {

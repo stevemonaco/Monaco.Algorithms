@@ -7,13 +7,13 @@ using Monaco.Algorithms.UnitTests.AssertHelpers;
 namespace Monaco.Algorithms.UnitTests.Sorting
 {
     [TestFixture]
-    class NaiveQuickSorterTests
+    class QuickSorterTests
     {
         [TestCase]
         public void NaiveQuickSorter_EmptyList_RemainsEmptyList()
         {
             var expected = new List<string>();
-            var sorter = new NaiveQuickSorter<string>();
+            var sorter = new QuickSorter<string>();
 
             var actual = new List<string>();
             sorter.Sort(actual);
@@ -24,7 +24,7 @@ namespace Monaco.Algorithms.UnitTests.Sorting
         [TestCase]
         public void NaiveQuickSorter_NullList_ThrowsNullReferenceException()
         {
-            var sorter = new NaiveQuickSorter<string>();
+            var sorter = new QuickSorter<string>();
 
             Assert.Throws<NullReferenceException>(() => sorter.Sort(null));
         }
@@ -32,7 +32,7 @@ namespace Monaco.Algorithms.UnitTests.Sorting
         [TestCaseSource(typeof(SortTestCases), "StringSortCases")]
         public void NaiveQuickSorter_SortStringsAscending_SortsCorrectly(IList<string> actual)
         {
-            var sorter = new NaiveQuickSorter<string>();
+            var sorter = new QuickSorter<string>();
 
             sorter.Sort(actual, SortOrder.Ascending);
 
@@ -42,7 +42,7 @@ namespace Monaco.Algorithms.UnitTests.Sorting
         [TestCaseSource(typeof(SortTestCases), "StringSortCases")]
         public void NaiveQuickSorter_SortStringsDescending_SortsCorrectly(IList<string> actual)
         {
-            var sorter = new NaiveQuickSorter<string>();
+            var sorter = new QuickSorter<string>();
 
             sorter.Sort(actual, SortOrder.Descending);
 

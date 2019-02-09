@@ -28,7 +28,7 @@ namespace Monaco.Algorithms.Structures
         }
 
         /// <summary>
-        /// Adds the specified value to the end of the list
+        /// Adds the specified value to the back of the list
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
@@ -46,6 +46,28 @@ namespace Monaco.Algorithms.Structures
                 node.Previous = Tail;
                 Tail.Next = node;
                 Tail = node;
+            }
+            Count++;
+        }
+
+        /// <summary>
+        /// Adds the specified value to the front of the list
+        /// </summary>
+        /// <param name="value"></param>
+        public void AddFront(T value)
+        {
+            var node = new DoublyLinkedNode<T>(value);
+
+            if (Count == 0)
+            {
+                Head = node;
+                Tail = node;
+            }
+            else
+            {
+                node.Next = Head;
+                Head.Previous = node;
+                Head = node;
             }
             Count++;
         }
@@ -81,7 +103,7 @@ namespace Monaco.Algorithms.Structures
         }
 
         /// <summary>
-        /// Removes a node from the list
+        /// Removes the specified node from the list
         /// </summary>
         /// <param name="node"></param>
         public void Remove(DoublyLinkedNode<T> node)
@@ -105,6 +127,52 @@ namespace Monaco.Algorithms.Structures
             }
 
             Count--;
+        }
+
+        /// <summary>
+        /// Removes the element at the front of the list and returns it
+        /// </summary>
+        public T PopFront()
+        {
+            if (Count == 0)
+                throw new InvalidOperationException($"{nameof(PopFront)} cannot be performed because the list is empty");
+
+            var result = Head.Value;
+            if(Count == 1)
+            {
+                Head = null;
+                Tail = null;
+            }
+            else
+            {
+                Head = Head.Next;
+            }
+            Count--;
+
+            return result;
+        }
+
+        /// <summary>
+        /// Removes the element at the back of the list and returns it
+        /// </summary>
+        public T PopBack()
+        {
+            if (Count == 0)
+                throw new InvalidOperationException($"{nameof(PopBack)} cannot be performed because the list is empty");
+
+            var result = Tail.Value;
+            if (Count == 1)
+            {
+                Head = null;
+                Tail = null;
+            }
+            else
+            {
+                Tail = Tail.Previous;
+            }
+            Count--;
+
+            return result;
         }
 
         public DoublyLinkedNode<T> this[int index]

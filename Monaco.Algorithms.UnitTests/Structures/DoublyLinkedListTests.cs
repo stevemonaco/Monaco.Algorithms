@@ -13,15 +13,81 @@ namespace Monaco.Algorithms.UnitTests.Structures
         [TestCase(new int[] { 5 })]
         [TestCase(new int[] { 5, 8 })]
         [TestCase(new int[] { 5, 8, 1, 15, 20, 80, 51 })]
-        public void Add_Items_Correctly(IEnumerable<int> items)
+        public void Add_Correctly(IEnumerable<int> expected)
         {
-            var expected = items.ToArray();
-            var actualList = new DoublyLinkedList<int>();
+            var actual = new DoublyLinkedList<int>();
+
+            foreach (var item in expected)
+                actual.Add(item);
+
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestCase(new int[] { })]
+        [TestCase(new int[] { 5 })]
+        [TestCase(new int[] { 5, 8 })]
+        [TestCase(new int[] { 5, 8, 1, 15, 20, 80, 51 })]
+        public void AddFront_Correctly(IEnumerable<int> items)
+        {
+            var expected = items.Reverse().ToArray();
+            var actual = new DoublyLinkedList<int>();
 
             foreach (var item in items)
-                actualList.Add(item);
+                actual.AddFront(item);
 
-            CollectionAssert.AreEqual(expected, actualList);
+            CollectionAssert.AreEqual(expected, actual);
+        }
+
+        [TestCase(new int[] { 5 })]
+        [TestCase(new int[] { 15, 8, 1, 15, 20, 80, 51 })]
+        public void PopFront_ReturnsExpected(int[] items)
+        {
+            var expected = items[0];
+            var list = new DoublyLinkedList<int>(items);
+
+            var actual = list.PopFront();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(new int[] { })]
+        [TestCase(new int[] { 20 })]
+        [TestCase(new int[] { 20, 25 })]
+        [TestCase(new int[] { 15, 8, 1, 15, 20, 80, 51 })]
+        public void PopFront_EmptyList_ThrowsInvalidOperationException(int[] items)
+        {
+            var list = new DoublyLinkedList<int>(items);
+
+            while (list.Count > 0)
+                list.PopFront();
+
+            Assert.Throws<InvalidOperationException>(() => { list.PopFront(); });
+        }
+
+        [TestCase(new int[] { 5 })]
+        [TestCase(new int[] { 15, 8, 1, 15, 20, 80, 51 })]
+        public void PopBack_ReturnsExpected(int[] items)
+        {
+            var expected = items[items.GetUpperBound(0)];
+            var list = new DoublyLinkedList<int>(items);
+
+            var actual = list.PopBack();
+
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestCase(new int[] { })]
+        [TestCase(new int[] { 20 })]
+        [TestCase(new int[] { 20, 25 })]
+        [TestCase(new int[] { 15, 8, 1, 15, 20, 80, 51 })]
+        public void PopBack_EmptyList_ThrowsInvalidOperationException(int[] items)
+        {
+            var list = new DoublyLinkedList<int>(items);
+
+            while (list.Count > 0)
+                list.PopBack();
+
+            Assert.Throws<InvalidOperationException>(() => { list.PopBack(); });
         }
 
         [TestCase(new int[] { 5 }, 0)]

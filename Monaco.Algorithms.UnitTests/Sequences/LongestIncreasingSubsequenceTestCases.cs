@@ -5,6 +5,18 @@ namespace Monaco.Algorithms.UnitTests.Sequences
 {
     class LongestIncreasingSubsequenceTestCases
     {
+        public static IEnumerable<TestCaseData> LisLengthIntCases
+        {
+            get
+            {
+                yield return new TestCaseData(new int[] { 10, 51, 75, 42 }, 3);
+                yield return new TestCaseData(new int[] { 75, 10, 42, 51 }, 3);
+                yield return new TestCaseData(new int[] { 75, 3, 8, 51, 15, 21 }, 4);
+                yield return new TestCaseData(new int[] { 75 }, 1);
+                yield return new TestCaseData(new int[] { }, 0);
+            }
+        }
+
         public static IEnumerable<TestCaseData> LisListIntCases
         {
             get

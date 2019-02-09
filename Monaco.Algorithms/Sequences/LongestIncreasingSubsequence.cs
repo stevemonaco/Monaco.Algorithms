@@ -4,14 +4,19 @@ using System.Linq;
 
 namespace Monaco.Algorithms.Sequences
 {
-    public class LongestIncreasingSubsequence<T> where T : IComparable<T>
+    /// <summary>
+    /// Algorithm implementation to find the Longest Increasing Subsequence
+    /// </summary>
+    /// <remarks>Approach adapted largely from https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/ </remarks>
+    /// <typeparam name="T"></typeparam>
+    public class LongestIncreasingSubsequence
     {
         /// <summary>
         /// Returns the LIS length using a dynamic programming method
         /// O(n^2) runtime complexity
         /// O(n) memory complexity
         /// </summary>
-        public static int LisLengthDynamic(IList<T> items)
+        public static int LisLengthDynamic<T>(IList<T> items) where T : IComparable<T>
         {
             if (items is null)
                 throw new NullReferenceException();
@@ -36,7 +41,7 @@ namespace Monaco.Algorithms.Sequences
         /// </summary>
         /// <param name="items"></param>
         /// <returns></returns>
-        public static IEnumerable<IList<T>> LisListDynamic(IList<T> items)
+        public static IEnumerable<IList<T>> LisListDynamic<T>(IList<T> items) where T : IComparable<T>
         {
             if (items is null)
                 throw new NullReferenceException();

@@ -9,7 +9,7 @@ namespace Monaco.Algorithms.Sequences
         /// <summary>
         /// Returns the LIS length using a dynamic programming method
         /// O(n^2) runtime complexity
-        /// O(n^2) memory complexity
+        /// O(n) memory complexity
         /// </summary>
         public static int LisLengthDynamic(IList<T> items)
         {
@@ -20,9 +20,6 @@ namespace Monaco.Algorithms.Sequences
                 return 0;
 
             int[] table = new int[items.Count];
-            for (int i = 0; i < items.Count; i++)
-                table[i] = 1;
-
             var comparer = Comparer<T>.Default;
 
             for (int i = 1; i < items.Count; i++)
@@ -30,9 +27,15 @@ namespace Monaco.Algorithms.Sequences
                     if (comparer.Compare(items[j], items[i]) < 0 && table[i] < (table[j] + 1))
                         table[i] = 1 + table[j];
 
-            return table.Max();
+            return table.Max() + 1;
         }
 
+        /// <summary>
+        /// Returns all subsequences using a dynamic programming method
+        /// O(n^2) runtime complexity
+        /// </summary>
+        /// <param name="items"></param>
+        /// <returns></returns>
         public static IEnumerable<IList<T>> LisListDynamic(IList<T> items)
         {
             if (items is null)

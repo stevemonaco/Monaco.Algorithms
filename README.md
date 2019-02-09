@@ -1,26 +1,27 @@
 # Monaco.Algorithms
-Collection of Reference Algorithms implemented in C#. Not intended for production use.
+Collection of Reference Algorithms implemented in C#. Most implemented with generics where possible. Not intended for production use.
 
 ## Sorting Algorithms
-* Bubble Sort
-* Selection Sort
-* Merge Sort
-* Quick Sort
+* [Bubble Sort](Monaco.Algorithms/Sorting/BubbleSorter.cs)
+* [Selection Sort](Monaco.Algorithms/Sorting/SelectionSorter.cs)
+* [Merge Sort](Monaco.Algorithms/Sorting/MergeSorter.cs)
+* [Quick Sort](Monaco.Algorithms/Sorting/QuickSorter.cs)
 
 ## Linear Algebra Algorithms
-* Principal Component Analysis
-* Covariance Matrix
-* Matrix Mean+Variance Standardization
+* [Principal Component Analysis](Monaco.Algorithms/LinearAlgebra/PrincipalComponentAnalyzer.cs)
+* [Covariance Matrix](Monaco.Algorithms/Extensions/MatrixExtensions.cs)
+* [Matrix Mean+Variance Standardization](Monaco.Algorithms/Extensions/MatrixExtensions.cs)
 
 ## Sequence Algorithms
-* Longest Common Subsequence (Recursive, Bottom-Up, Top-Down implementations)
-* Fisher-Yates Shuffle
+* [Longest Common Subsequence](Monaco.Algorithms/Sequences/LongestCommonSubsequence.cs) (Recursive, Bottom-Up, Top-Down implementations)
+* [Longest Increasing Subsequence](Monaco.Algorithms/Sequences/LongestIncreasingSubsequence.cs) (Bottom-Up Dynamic)
+* [Fisher-Yates Shuffle](Monaco.Algorithms/Extensions/ListExtensions.cs)
 
 ## Data Structures
-* Generic Doubly Linked List
+* [Generic Doubly Linked List](Monaco.Algorithms/Structures/DoublyLinkedList.cs)
 
 ## Miscellaneous
-* Internet Checksum (RFC1071)
+* [Internet Checksum](Monaco.Algorithms/Checksum/InternetChecksum.cs) (RFC1071)
 
 ## Dependencies
 * Unit tests with NUnit

@@ -6,7 +6,7 @@ namespace Monaco.Algorithms.Searching
 {
     public interface IStringMatcher
     {
-        int FindFirst(string text, int startIndex = 0);
-        IEnumerable<int> FindAll(string text, int startIndex = 0);
+        int FindFirst(string text, string pattern, int startIndex = 0);
+        IEnumerable<int> FindAll(string text, string pattern, int startIndex = 0);
     }
 }

@@ -6,45 +6,34 @@ namespace Monaco.Algorithms.Searching
 {
     /// <summary>
     /// Implementation of Knuth-Morris-Pratt algorithm for string searching
+    /// O(m+n) runtime complexity
     /// </summary>
     /// <remarks>Current implementation based upon http://www-igm.univ-mlv.fr/~lecroq/string/node8.html#SECTION0080
     /// Initial implementation based upon https://www.nayuki.io/page/knuth-morris-pratt-string-matching 
     /// but was found to do many more comparisons than a real KMP solution</remarks>
     public class KmpStringMatcher : IStringMatcher
     {
-        private string pattern;
-        private int[] table;
-
-        public KmpStringMatcher() { }
+        private string lastPattern;
+        private int[] lastTable;
 
         /// <summary>
-        /// Sets the search pattern and builds the Kmp table
+        /// Builds a Kmp table from the provided pattern
         /// </summary>
-        /// <param name="searchPattern"></param>
-        public KmpStringMatcher(string searchPattern)
+        public int[] BuildPatternTable(string pattern)
         {
-            SetPattern(searchPattern);
-        }
+            if (pattern is null)
+                throw new NullReferenceException(nameof(pattern));
 
-        /// <summary>
-        /// Sets the search pattern and rebuilds the Kmp table
-        /// </summary>
-        public void SetPattern(string searchPattern)
-        {
-            if (searchPattern is null)
-                throw new NullReferenceException(nameof(searchPattern));
+            if (pattern == "")
+                throw new ArgumentException($"{nameof(pattern)} cannot be an empty string");
 
-            if (searchPattern == "")
-                throw new ArgumentException($"{nameof(searchPattern)} cannot be an empty string");
-
-            pattern = searchPattern;
-            table = new int[pattern.Length+1];
+            var table = new int[pattern.Length+1];
             table[0] = -1;
 
             int j = -1;
             int i = 0;
 
-            while (i < searchPattern.Length)
+            while (i < pattern.Length)
             {
                 while (j > -1 && pattern[i] != pattern[j])
                     j = table[j];
@@ -62,16 +51,27 @@ namespace Monaco.Algorithms.Searching
                 else
                     table[i] = j;
             }
+
+            lastPattern = pattern;
+            lastTable = table;
+
+            return table;
         }
 
         /// <summary>
-        /// Finds the first occurance of the currently loaded pattern in the supplied text
+        /// Finds the first occurance of the pattern in the supplied text
         /// </summary>
         /// <returns>The index if found or -1 if not found</returns>
-        public int FindFirst(string text, int startIndex = 0)
+        public int FindFirst(string text, string pattern, int startIndex = 0)
         {
-            if (pattern is null || table is null)
+            if (pattern is null || text is null)
                 throw new NullReferenceException();
+
+            int[] table;
+            if (pattern != lastPattern)
+                table = BuildPatternTable(pattern);
+            else
+                table = lastTable;
 
             int i = 0;
 
@@ -88,13 +88,19 @@ namespace Monaco.Algorithms.Searching
         }
 
         /// <summary>
-        /// Finds all occurances of the currently loaded pattern in the supplied text
+        /// Finds all occurances of the pattern in the supplied text
         /// </summary>
         /// <returns>An enumerable of indices or an empty enumerable if not found</returns>
-        public IEnumerable<int> FindAll(string text, int startIndex = 0)
+        public IEnumerable<int> FindAll(string text, string pattern, int startIndex = 0)
         {
-            if (pattern is null || table is null)
+            if (pattern is null || text is null)
                 throw new NullReferenceException();
+
+            int[] table;
+            if (pattern != lastPattern)
+                table = BuildPatternTable(pattern);
+            else
+                table = lastTable;
 
             int i = 0;
 

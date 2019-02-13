@@ -29,5 +29,9 @@ namespace Monaco.Algorithms.Extensions
             list[firstIndex] = list[secondIndex];
             list[secondIndex] = temp;
         }
+
+        public static T Last<T>(this IList<T> list) => list[list.Count - 1];
+
+        public static T LastOrDefault<T>(this IList<T> list) => list.Count > 0 ? list[list.Count - 1] : default;
     }
 }

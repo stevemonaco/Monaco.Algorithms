@@ -12,13 +12,18 @@ Collection of Reference Algorithms implemented in C#. Most implemented with gene
 * [Covariance Matrix](Monaco.Algorithms/Extensions/MatrixExtensions.cs)
 * [Matrix Mean+Variance Standardization](Monaco.Algorithms/Extensions/MatrixExtensions.cs)
 
+## Search Algorithms
+* [Linear String Search](Monaco.Algorithms/Searching/LinearStringMatcher.cs)
+* [Knuth-Morris-Pratt String Search](Monaco.Algorithms/Searching/KmpStringMatcher.cs)
+* [Linear Search](Monaco.Algorithms/Searching/LinearSearch.cs)
+
 ## Sequence Algorithms
 * [Longest Common Subsequence](Monaco.Algorithms/Sequences/LongestCommonSubsequence.cs) (Recursive, Bottom-Up, Top-Down implementations)
-* [Longest Increasing Subsequence](Monaco.Algorithms/Sequences/LongestIncreasingSubsequence.cs) (Bottom-Up Dynamic)
+* [Longest Increasing Subsequence](Monaco.Algorithms/Sequences/LongestIncreasingSubsequence.cs)
 * [Fisher-Yates Shuffle](Monaco.Algorithms/Extensions/ListExtensions.cs)
 
 ## Data Structures
-* [Generic Doubly Linked List](Monaco.Algorithms/Structures/DoublyLinkedList.cs)
+* [Doubly Linked List](Monaco.Algorithms/Structures/DoublyLinkedList.cs)
 
 ## Miscellaneous
 * [Internet Checksum](Monaco.Algorithms/Checksum/InternetChecksum.cs) (RFC1071)

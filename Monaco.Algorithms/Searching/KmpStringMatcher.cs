@@ -19,7 +19,7 @@ namespace Monaco.Algorithms.Searching
         /// <summary>
         /// Builds a Kmp table from the provided pattern
         /// </summary>
-        public int[] BuildPatternTable(string pattern)
+        private int[] BuildPatternTable(string pattern)
         {
             if (pattern is null)
                 throw new NullReferenceException(nameof(pattern));
@@ -67,6 +67,9 @@ namespace Monaco.Algorithms.Searching
             if (pattern is null || text is null)
                 throw new NullReferenceException();
 
+            if (text == "" || pattern == "")
+                return -1;
+
             int[] table;
             if (pattern != lastPattern)
                 table = BuildPatternTable(pattern);
@@ -75,7 +78,7 @@ namespace Monaco.Algorithms.Searching
 
             int i = 0;
 
-            for(int j = startIndex; j < text.Length; j++)
+            for(int j = startIndex; j < text.Length - (pattern.Length - i - 1); j++)
             {
                 while (i > -1 && pattern[i] != text[j])
                     i = table[i];
@@ -96,6 +99,9 @@ namespace Monaco.Algorithms.Searching
             if (pattern is null || text is null)
                 throw new NullReferenceException();
 
+            if (pattern == "" || text == "")
+                yield break;
+
             int[] table;
             if (pattern != lastPattern)
                 table = BuildPatternTable(pattern);
@@ -104,7 +110,7 @@ namespace Monaco.Algorithms.Searching
 
             int i = 0;
 
-            for (int j = startIndex; j < text.Length; j++)
+            for (int j = startIndex; j < text.Length - (pattern.Length - i - 1); j++)
             {
                 while (i > -1 && pattern[i] != text[j])
                     i = table[i];

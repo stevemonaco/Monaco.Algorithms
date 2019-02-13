@@ -24,13 +24,5 @@ namespace Monaco.Algorithms.UnitTests.Searching
             var actual = kmp.FindAll(text, pattern, startIndex).ToList();
             CollectionAssert.AreEqual(expected, actual);
         }
-
-        //[TestCase("", typeof(ArgumentException))]
-        //[TestCase(null, typeof(NullReferenceException))]
-        //public void SetPattern_InvalidPattern_ThrowsException(string pattern, Type expected)
-        //{
-        //    var kmp = new KmpStringMatcher();
-        //    Assert.Throws(expected, () => { kmp.SetPattern(pattern); });
-        //}
     }
 }

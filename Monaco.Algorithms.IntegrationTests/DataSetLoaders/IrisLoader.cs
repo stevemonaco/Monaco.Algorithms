@@ -41,7 +41,7 @@ namespace AlgorithmIntegrationTests.DataSetLoaders
             throw new NotImplementedException();
         }
 
-        public IList<IrisModel> LoadFromWeb(string path= "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data")
+        public IList<IrisModel> LoadFromWeb(string path = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data")
         {
             throw new NotImplementedException();
         }

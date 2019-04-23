@@ -7,11 +7,6 @@ Collection of Reference Algorithms implemented in C#. Most implemented with gene
 * [Merge Sort](Monaco.Algorithms/Sorting/MergeSorter.cs)
 * [Quick Sort](Monaco.Algorithms/Sorting/QuickSorter.cs)
 
-## Linear Algebra Algorithms
-* [Principal Component Analysis](Monaco.Algorithms/LinearAlgebra/PrincipalComponentAnalyzer.cs)
-* [Covariance Matrix](Monaco.Algorithms/Extensions/MatrixExtensions.cs)
-* [Matrix Mean+Variance Standardization](Monaco.Algorithms/Extensions/MatrixExtensions.cs)
-
 ## Search Algorithms
 * [Linear String Search](Monaco.Algorithms/Searching/LinearStringMatcher.cs)
 * [Knuth-Morris-Pratt String Search](Monaco.Algorithms/Searching/KmpStringMatcher.cs)
@@ -21,6 +16,16 @@ Collection of Reference Algorithms implemented in C#. Most implemented with gene
 * [Longest Common Subsequence](Monaco.Algorithms/Sequences/LongestCommonSubsequence.cs) (Recursive, Bottom-Up, Top-Down implementations)
 * [Longest Increasing Subsequence](Monaco.Algorithms/Sequences/LongestIncreasingSubsequence.cs)
 * [Fisher-Yates Shuffle](Monaco.Algorithms/Extensions/ListExtensions.cs)
+
+## Image Algorithms
+* [Nearest-Neighbor Rescaling](Monaco.Algorithms/ImageScaling/NearestNeighborImageScaler.cs)
+* [Bilinear Interpolation Rescaling](Monaco.Algorithms/ImageScaling/BilinearImageScaler.cs)
+* [Bicubic Interpolation Rescaling](Monaco.Algorithms/ImageScaling/BicubicImageScaler.cs)
+
+## Linear Algebra Algorithms
+* [Principal Component Analysis](Monaco.Algorithms/LinearAlgebra/PrincipalComponentAnalyzer.cs)
+* [Covariance Matrix](Monaco.Algorithms/Extensions/MatrixExtensions.cs)
+* [Matrix Mean+Variance Standardization](Monaco.Algorithms/Extensions/MatrixExtensions.cs)
 
 ## Data Structures
 * [Doubly Linked List](Monaco.Algorithms/Structures/DoublyLinkedList.cs)

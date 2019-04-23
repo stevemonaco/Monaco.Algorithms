@@ -34,6 +34,7 @@ Collection of Reference Algorithms implemented in C#. Most implemented with gene
 * [Internet Checksum](Monaco.Algorithms/Checksum/InternetChecksum.cs) (RFC1071)
 
 ## Dependencies
-* Unit tests with NUnit
-* Matrix operations supported by MathNET.Numerics
-* Integration test data loading with CsvHelper
+* NUnit : Unit Tests
+* ImageSharp : Image format support
+* MathNET.Numerics : Matrix support
+* CsvHelper : Integration test data loading

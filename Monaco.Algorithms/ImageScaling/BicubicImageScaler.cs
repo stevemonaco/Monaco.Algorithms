@@ -7,6 +7,11 @@ using Monaco.Algorithms.Extensions;
 
 namespace Monaco.Algorithms.ImageScaling
 {
+    /// <summary>
+    /// Rescales an image using bicubic interpolation
+    /// Implementation based upon https://theailearner.com/tag/bicubic-interpolation/ and
+    /// OpenCV https://github.com/opencv/opencv/blob/master/modules/imgproc/src/resize.cpp
+    /// </summary>
     public class BicubicImageScaler
     {
         private double[] coefficientWeightsX = new double[4];

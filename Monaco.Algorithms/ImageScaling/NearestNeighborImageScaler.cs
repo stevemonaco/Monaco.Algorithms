@@ -1,9 +1,9 @@
-﻿using SixLabors.ImageSharp;
-using SixLabors.ImageSharp.PixelFormats;
-using SixLabors.ImageSharp.Advanced;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using SixLabors.ImageSharp;
+using SixLabors.ImageSharp.PixelFormats;
+using SixLabors.ImageSharp.Advanced;
 
 namespace Monaco.Algorithms.ImageScaling
 {

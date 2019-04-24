@@ -1,14 +1,13 @@
-﻿using AlgorithmIntegrationTests.IntegrationTesters;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using AlgorithmIntegrationTests.IntegrationTesters;
 using Monaco.Algorithms.ImageScaling;
 using Monaco.Algorithms.IntegrationTests.DataSetLoaders;
 using Monaco.Algorithms.IntegrationTests.Models;
 using NUnit.Framework;
 using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.PixelFormats;
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Text;
 
 namespace Monaco.Algorithms.IntegrationTests.IntegrationTesters
 {

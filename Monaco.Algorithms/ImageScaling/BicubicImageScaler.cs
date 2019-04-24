@@ -69,8 +69,8 @@ namespace Monaco.Algorithms.ImageScaling
             Rescale(source, (int)Math.Floor(source.Width * scale), (int)Math.Floor(source.Height * scale));
 
         /// <summary>
-        /// Returns a pixel color from coordinates. If the coordinates are outside of the image, then the retrieved coordinate
-        /// is clamped to the edge of the bitmap
+        /// Returns the pixel color of an image at the given coordinates. If the coordinates are
+        /// outside of the image, then the coordinate is clamped to the edge of the image
         /// </summary>
         private Rgba32 GetClampedPixel(Image<Rgba32> image, int x, int y) =>
             image[x.Clamp(0, image.Width - 1), y.Clamp(0, image.Height - 1)];

@@ -69,7 +69,11 @@ namespace Monaco.Algorithms.ImageScaling
         public Image<Rgba32> Rescale(Image<Rgba32> source, double scale) =>
             Rescale(source, (int)Math.Floor(source.Width * scale), (int)Math.Floor(source.Height * scale));
 
-        public Rgba32 GetClampedPixel(Image<Rgba32> image, int x, int y) =>
+        /// <summary>
+        /// Returns a pixel color from coordinates. If the coordinates are outside of the image, then the retrieved coordinate
+        /// is clamped to the edge of the bitmap
+        /// </summary>
+        private Rgba32 GetClampedPixel(Image<Rgba32> image, int x, int y) =>
             image[x.Clamp(0, image.Width - 1), y.Clamp(0, image.Height - 1)];
 
         private Rgba32 BicubicInterpolate(Rgba32[][] neighbors, double weightX, double weightY)

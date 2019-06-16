@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Monaco.Algorithms.Extensions
 {
@@ -12,6 +13,11 @@ namespace Monaco.Algorithms.Extensions
                 return max;
             else
                 return value;
+        }
+
+        public static bool EqualsAny<T>(this T value, params T[] checks) where T : IEquatable<T>
+        {
+            return checks.Any(x => x.Equals(value));
         }
     }
 }

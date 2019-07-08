@@ -2,12 +2,27 @@
 using System.Collections.Immutable;
 using System.Collections.Generic;
 using NUnit.Framework;
-using System.Collections.ObjectModel;
+using Monaco.Algorithms.Structures;
 
 namespace Monaco.Algorithms.UnitTests.Structures
 {
     public class PathTrieTestCases
     {
+        private static IPathTrie<int> BuildTestTree()
+        {
+            (string, int)[] testTreeChildren = new (string, int)[]
+            {
+                ("/Folder1", 1), ("/Folder1/Item1", 15), ("Folder1/Item2", 25), ("Folder2", 2), ("Folder2/Folder3", 3), ("Folder2/Folder3/Item3", 5)
+            };
+
+            var trie = new PathTrie<int>();
+
+            foreach (var item in testTreeChildren)
+                trie.Add(item.Item1, item.Item2);
+
+            return trie;
+        }
+
         public static IEnumerable<TestCaseData> AddCases()
         {
             var singleItemList = new List<(string, int)> { ("/Folder1", 1) };
@@ -81,18 +96,18 @@ namespace Monaco.Algorithms.UnitTests.Structures
 
         public static IEnumerable<TestCaseData> PathKeyCases()
         {
-            var manyItemList = new List<(string, int)> {
-                ("/Folder1", 1),
-                ("/Folder1/Folder3", 3),
-                ("/Folder1/Folder3/Item3", 5),
-                ("/Folder1/Item1", 15),
-                ("/Folder1/Item2", 25),
-                ("/Folder2", 2)
-            }.AsReadOnly();
+            yield return new TestCaseData(BuildTestTree(), "/Folder1", "/Folder1");
+            yield return new TestCaseData(BuildTestTree(), "/Folder1/Item2/", "/Folder1/Item2");
+            yield return new TestCaseData(BuildTestTree(), "/Folder2/Folder3/Item3", "/Folder2/Folder3/Item3");
+        }
 
-            yield return new TestCaseData(manyItemList, "/Folder1", "/Folder1");
-            yield return new TestCaseData(manyItemList, "/Folder1/Folder3/", "/Folder1/Folder3");
-            yield return new TestCaseData(manyItemList, "/Folder1/Folder3/Item3", "/Folder1/Folder3/Item3");
+        public static IEnumerable<TestCaseData> TryGetValueCases()
+        {
+            yield return new TestCaseData(BuildTestTree(), "/Folder2", 2);
+            yield return new TestCaseData(BuildTestTree(), "Folder2", 2);
+            yield return new TestCaseData(BuildTestTree(), "Folder2/Folder3/Item3", 5);
+            yield return new TestCaseData(BuildTestTree(), "/Folder2/Folder3/Item3", 5);
+
         }
     }
 }

@@ -41,13 +41,23 @@ namespace Monaco.Algorithms.UnitTests.Structures
             Assert.Throws<ArgumentException>(() => trie.Add(duplicates.Item1, duplicates.Item2));
         }
 
-        [TestCaseSource(typeof(PathTrieTestCases), "PathKeyCases")]
-        public void PathKey_ReturnsExpected(IReadOnlyCollection<(string, int)> items, string nodeKey, string expected)
+        [TestCaseSource(typeof(PathTrieTestCases), "TryGetValueCases")]
+        public void TryGetValue_AsExpected(IPathTrie<int> trie, string path, int expected)
         {
-            var trie = new PathTrie<int>();
+            Assert.Multiple(() =>
+            {
+                Assert.IsTrue(trie.TryGetValue(path, out var actual));
+                Assert.AreEqual(expected, actual);
+            });
+        }
 
-            foreach (var item in items)
-                trie.Add(item.Item1, item.Item2);
+        [TestCaseSource(typeof(PathTrieTestCases), "PathKeyCases")]
+        public void PathKey_ReturnsExpected(PathTrie<int> trie, string nodeKey, string expected)
+        {
+            //var trie = new PathTrie<int>();
+
+            //foreach (var item in items)
+            //    trie.Add(item.Item1, item.Item2);
 
             trie.TryGetNode(nodeKey, out var node);
             var actual = node.PathKey;

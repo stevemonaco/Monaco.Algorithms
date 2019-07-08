@@ -32,8 +32,25 @@ namespace Monaco.Algorithms.UnitTests.Structures
 
             Assert.Multiple(() =>
             {
+                Assert.NotNull(node);
                 Assert.AreEqual(name, node.Name);
                 Assert.AreEqual(value, node.Value);
+            });
+        }
+
+        [Test]
+        public void AttachChild_AsExpected()
+        {
+            var expected = ("TestItem5", 5);
+            parent.AttachChild(new PathTrieNode<int>(expected.Item1, expected.Item2));
+
+            parent.TryGetChild(expected.Item1, out var node);
+
+            Assert.Multiple(() =>
+            {
+                Assert.NotNull(node);
+                Assert.AreEqual(expected.Item1, node.Name);
+                Assert.AreEqual(expected.Item2, node.Value);
             });
         }
 

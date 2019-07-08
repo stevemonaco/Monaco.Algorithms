@@ -19,7 +19,7 @@ namespace Monaco.Algorithms.UnitTests.AssertHelpers
                 var zip = sortedA.Zip(sortedB, (a, b) => new Tuple<T, T>(a, b));
                 var comparer = Comparer<T>.Default;
 
-                foreach(var pair in zip)
+                foreach (var pair in zip)
                 {
                     if (comparer.Compare(pair.Item1, pair.Item2) != 0)
                         Assert.Fail($"item {pair.Item1} did not match {pair.Item2}");
@@ -34,11 +34,18 @@ namespace Monaco.Algorithms.UnitTests.AssertHelpers
 
             var comparer = EqualityComparer<T>.Default;
 
-            for(int i = 0; i < listA.Count; i++)
+            for (int i = 0; i < listA.Count; i++)
             {
                 if (!comparer.Equals(listA[i], listB[i]))
                     Assert.Fail($"item {listA[i]} did not match {listB[i]}");
             }
+        }
+
+        public static void EqualsAny<T>(List<T> actualList, IReadOnlyCollection<IReadOnlyCollection<T>> expectedLists)
+            where T : IComparable<T>
+        {
+            if(!expectedLists.Any(x => actualList.SequenceEqual(x)))
+                Assert.Fail($"{nameof(EqualsAny)} no supplied list matches the given {nameof(actualList)}");
         }
     }
 }

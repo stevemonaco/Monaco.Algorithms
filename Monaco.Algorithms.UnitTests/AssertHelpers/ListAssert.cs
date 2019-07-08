@@ -41,7 +41,7 @@ namespace Monaco.Algorithms.UnitTests.AssertHelpers
             }
         }
 
-        public static void EqualsAny<T>(List<T> actualList, IReadOnlyCollection<IReadOnlyCollection<T>> expectedLists)
+        public static void EqualsAny<T>(IList<T> actualList, IReadOnlyCollection<IReadOnlyCollection<T>> expectedLists)
             where T : IComparable<T>
         {
             if(!expectedLists.Any(x => actualList.SequenceEqual(x)))

@@ -56,6 +56,24 @@ namespace Monaco.Algorithms.Structures
             children.Add(node.Name, node);
         }
 
+        public IPathTrieNode<T> DetachChild(string name)
+        {
+            if (name is null)
+                throw new ArgumentException($"{nameof(DetachChild)}: parameter '{nameof(name)}' was null or empty");
+
+            if (children is null)
+                throw new ArgumentException($"{nameof(DetachChild)}: child element with {nameof(name)} '{name}' does not exist");
+
+            if (children.TryGetValue(name, out var node))
+            {
+                node.Parent = null;
+                children.Remove(name);
+                return node;
+            }
+            else
+                throw new KeyNotFoundException($"{nameof(DetachChild)}: child element with {nameof(name)} '{name}' does not exist");
+        }
+
         public void RemoveChild(string name)
         {
             if(name is null)
@@ -67,7 +85,7 @@ namespace Monaco.Algorithms.Structures
             if (children.ContainsKey(name))
                 children.Remove(name);
             else
-                throw new ArgumentException($"{nameof(RemoveChild)}: child element with {nameof(name)} '{name}' does not exist");
+                throw new KeyNotFoundException($"{nameof(RemoveChild)}: child element with {nameof(name)} '{name}' does not exist");
         }
 
         public bool ContainsChild(string name)

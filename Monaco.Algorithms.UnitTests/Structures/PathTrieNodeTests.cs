@@ -37,6 +37,17 @@ namespace Monaco.Algorithms.UnitTests.Structures
             });
         }
 
+        [TestCase("SubItem3", 3)]
+        public void DetachChild_AsExpected(string name, int value)
+        {
+            var node = parent.DetachChild(name);
+            Assert.Multiple(() =>
+            {
+                Assert.AreEqual(name, node.Name);
+                Assert.AreEqual(value, node.Value);
+            });
+        }
+
         [TestCase("SubItem2")]
         public void RemoveChild_AsExpected(string name)
         {

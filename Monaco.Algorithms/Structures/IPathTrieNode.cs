@@ -16,6 +16,7 @@ namespace Monaco.Algorithms.Structures
         bool ContainsChild(string name);
         bool TryGetChild(string name, out IPathTrieNode<T> node);
         void AttachChild(IPathTrieNode<T> node);
+        IPathTrieNode<T> DetachChild(string name);
 
         IEnumerable<IPathTrieNode<T>> Children();
         IEnumerable<IPathTrieNode<T>> Ancestors();

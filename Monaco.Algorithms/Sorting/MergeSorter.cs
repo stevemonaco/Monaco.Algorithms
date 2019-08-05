@@ -17,19 +17,9 @@ namespace Monaco.Algorithms.Sorting
                 return;
 
             if (sortOrder == SortOrder.Ascending)
-                shouldSwap = (a, b) =>
-                {
-                    if (comparer.Compare(a, b) > 0)
-                        return true;
-                    return false;
-                };
+                shouldSwap = (a, b) => comparer.Compare(a, b) > 0;
             else if (sortOrder == SortOrder.Descending)
-                shouldSwap = (a, b) =>
-                {
-                    if (comparer.Compare(a, b) < 0)
-                        return true;
-                    return false;
-                };
+                shouldSwap = (a, b) => comparer.Compare(a, b) < 0;
 
             var sorted = MergeSort(input);
 

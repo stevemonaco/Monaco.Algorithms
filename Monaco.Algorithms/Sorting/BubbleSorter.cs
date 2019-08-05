@@ -16,19 +16,9 @@ namespace Monaco.Algorithms.Sorting
             Func<T, T, bool> shouldSwap = null;
 
             if (sortOrder == SortOrder.Ascending)
-                shouldSwap = (a, b) =>
-                {
-                    if (comparer.Compare(a, b) > 0)
-                        return true;
-                    return false;
-                };
+                shouldSwap = (a, b) => comparer.Compare(a, b) > 0;
             else if (sortOrder == SortOrder.Descending)
-                shouldSwap = (a, b) =>
-                {
-                    if (comparer.Compare(a, b) < 0)
-                        return true;
-                    return false;
-                };
+                shouldSwap = (a, b) => comparer.Compare(a, b) < 0;
 
             for (int i = 1; i < input.Count; i++)
             {
